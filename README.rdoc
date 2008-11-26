@@ -1,0 +1,56 @@
+== Message Block
+Implements the common pattern by which a list of messages are shown at the top, 
+often a combination of flash messages (and potentially different types of them)
+and ActiveRecord validation issues on one or more models.  
+
+This view helper acts as a replacement for error_messages_for by taking error messages 
+from your models and combing them with flash messages (multiple types such as error, confirm, etc.) 
+and outputting them to your view.  This plugin comes with an example stylesheet and images.
+
+== Usage
+
+Once you install this, you should now have a set of images at public/images/message_block and 
+a basic stylesheet installed at public/stylesheets/message_block.css.  First you'll want to either 
+reference this in your layout or copy the declarations to your main layout.  Then you can use 
+the helper <tt><%= message_block %></tt> as described below:
+
+The first argument specifies a hash options:
+
+* <tt>:on</tt> - specifies one or many model names for which to check error messages.
+* <tt>:model_error_type</tt> - specifies the message type to use for validation errors; defaults to 'error'
+* <tt>:flash_types</tt> - specifies the keys to check in the flash hash.  Messages will be grouped in ul 
+  lists according to this type.  Defaults to: %w(back confirm error info warn)
+* <tt>:html</tt> - Specifies HTML options for the containing div
+* <tt>:id</tt> - Specifies ID of the containing div; defaults to 'message_block'
+* <tt>:class</tt> - Specifies class name of the containing div; defaults to nothing.
+
+=== Example
+Imagine you have a form for entering a user and a comment:
+
+  <%= message_block :on => [:user, :comment], :id => "messages" %>
+
+Imagine also you set these flash variables in the controller:
+  class CommentsController
+    def create
+      flash.now[:error] = "Error A"
+      flash.now[:confirm] = "Confirmation A"  # Note you can use different types
+      flash.now[:warn] = ["Warn A", "Warn B"]  # Can set to an array for multiple messages
+    end
+  end
+
+The output with this and the user and comment objects failing validation is:
+
+  <div id="message_block">
+    <ul class="error">
+      <li>Error A</li>
+      <li>User first name is required.</li>
+      <li>Comment contents is required.</li>
+    </ul>
+    <ul class="confirm">
+      <li>Confirmation A</li>
+    </ul>
+    <ul class="warn">
+      <li>Warn A</li>
+      <li>Warn B</li>
+    </ul>
+  </div>
