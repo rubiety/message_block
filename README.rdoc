@@ -1,7 +1,9 @@
 == Message Block
-Implements the common pattern by which a list of messages are shown at the top, 
-often a combination of flash messages (and potentially different types of them)
-and ActiveRecord validation issues on one or more models.  
+
+Implements the common view pattern by which a list of messages are shown at the top, 
+often a combination of flash messages and ActiveRecord validation issues on one or more models.  
+This allows for a nice, stylized block of messages at the top of the page with icons 
+indicating what type of message it is (error, confirmation, warning, etc.)
 
 This view helper acts as a replacement for error_messages_for by taking error messages 
 from your models and combing them with flash messages (multiple types such as error, confirm, etc.) 
@@ -38,7 +40,8 @@ Imagine also you set these flash variables in the controller:
     end
   end
 
-The output with this and the user and comment objects failing validation is:
+And let's say that you want to show these messages but also show the validation issues 
+given that both user and comment fail ActiveRecord validation:
 
   <div id="message_block">
     <ul class="error">
