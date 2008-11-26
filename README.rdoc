@@ -27,7 +27,7 @@ The first argument specifies a hash options:
 === Example
 Imagine you have a form for entering a user and a comment:
 
-  <%= message_block :on => [:user, :comment], :id => "messages" %>
+  <%= message_block :on => [:user, :comment] %>
 
 Imagine also you set these flash variables in the controller:
   class CommentsController
