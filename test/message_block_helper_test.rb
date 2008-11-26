@@ -6,7 +6,7 @@ require 'action_view'
 $:.unshift File.dirname(__FILE__) + '/../lib'
 require File.dirname(__FILE__) + '/../init'
 
-class MessageBlockTest < Test::Unit::TestCase
+class MessageBlockHelperTest < Test::Unit::TestCase
   include ActionView::Helpers::TagHelper
   include Rubiety::MessageBlock::Helpers
   
