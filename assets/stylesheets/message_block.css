@@ -7,6 +7,9 @@
   margin-bottom: 0;
   list-style: none;
 }
+#message_block ul li {
+  margin-left: 3em;
+}
 
 #message_block ul.error {
   border-top: 1px solid #ecd757;
