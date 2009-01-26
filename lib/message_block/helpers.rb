@@ -6,7 +6,7 @@ module Rubiety
         options.assert_valid_keys(:on, :model_error_type, :flash_types, :html, :id, :class)
         
         options[:model_error_type] ||= :error
-        options[:flash_types] ||= [:back, :confirm, :error, :info, :warn]
+        options[:flash_types] ||= [:notice, :back, :confirm, :error, :info, :warn]
         options[:on] ||= controller.controller_name.split('/').last.gsub(/\_controller$/, '').singularize.to_sym
         options[:html] ||= {:id => 'message_block'}
         options[:html][:id] = options[:id] if options[:id]

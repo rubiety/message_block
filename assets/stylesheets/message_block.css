@@ -25,6 +25,12 @@
   background: #fcf6d0 url(../../images/message_block/info_m.gif) 1em 50% no-repeat;
 }
 
+#message_block ul.notice {
+  border-top: 1px solid #ecd757;
+  border-bottom: 1px solid #ecd757;
+  background: #fcf6d0 url(../../images/message_block/notice_m.gif) 1em 50% no-repeat;
+}
+
 #message_block ul.confirm {
   border-top: 1px solid #ecd757;
   border-bottom: 1px solid #ecd757;
