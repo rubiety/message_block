@@ -3,7 +3,7 @@ module Rubiety
     module Helpers
       
       def message_block(options = {})
-        options.assert_valid_keys(:on, :model_error_type, :flash_types, :html, :id, :class)
+        options.assert_valid_keys(:on, :model_error_type, :flash_types, :html, :id, :class, :container)
         
         options[:model_error_type] ||= :error
         options[:flash_types] ||= [:notice, :back, :confirm, :error, :info, :warn]
@@ -11,6 +11,7 @@ module Rubiety
         options[:html] ||= {:id => 'message_block'}
         options[:html][:id] = options[:id] if options[:id]
         options[:html][:class] = options[:class] if options[:class]
+        options[:container] = :div if options[:container].nil?
         
         flash_messages = {}
         
@@ -43,7 +44,11 @@ module Rubiety
           content_tag(:ul, flash_messages[type.to_sym].map {|message| content_tag(:li, message) }.join, :class => type)
         end.join
         
-        content_tag(:div, contents, options[:html])
+        if options[:container]
+          content_tag(options[:container], contents, options[:html])
+        else
+          contents
+        end
       end
       
     end

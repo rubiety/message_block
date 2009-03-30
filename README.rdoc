@@ -25,6 +25,7 @@ The first argument specifies a hash options:
 * <tt>:html</tt> - Specifies HTML options for the containing div
 * <tt>:id</tt> - Specifies ID of the containing div; defaults to 'message_block'
 * <tt>:class</tt> - Specifies class name of the containing div; defaults to nothing.
+* <tt>:container</tt> - specifies which block-level element to contain the errors (defaults to :div).
 
 === Example
 Imagine you have a form for entering a user and a comment:

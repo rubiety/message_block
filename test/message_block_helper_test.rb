@@ -156,6 +156,16 @@ class MessageBlockHelperTest < Test::Unit::TestCase
     assert_equal expected, message_block(:html => {:id => "block", :class => "messages"})
   end
   
+  def test_can_specify_container_option_as_false
+    expected = %(<ul class="error"><li>Author name can't be empty</li></ul>)
+    assert_equal expected, message_block(:on => :post, :container => false)
+  end
+  
+  def test_can_specify_container_option
+    expected = %(<fieldset id="message_block"><ul class="error"><li>Author name can't be empty</li></ul></fieldset>)
+    assert_equal expected, message_block(:on => :post, :container => :fieldset)
+  end
+  
   
   ### Flash messages functionality
   def test_sees_flash_error_string
