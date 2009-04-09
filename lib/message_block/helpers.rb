@@ -8,7 +8,7 @@ module Rubiety
         options[:model_error_type] ||= :error
         options[:flash_types] ||= [:notice, :back, :confirm, :error, :info, :warn]
         options[:on] ||= controller.controller_name.split('/').last.gsub(/\_controller$/, '').singularize.to_sym
-        options[:html] ||= {:id => 'message_block'}
+        options[:html] ||= {:id => 'message_block', :class => 'message_block'}
         options[:html][:id] = options[:id] if options[:id]
         options[:html][:class] = options[:class] if options[:class]
         options[:container] = :div if options[:container].nil?

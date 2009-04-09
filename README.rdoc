@@ -44,7 +44,7 @@ Imagine also you set these flash variables in the controller:
 And let's say that you want to show these messages but also show the validation issues 
 given that both user and comment fail ActiveRecord validation:
 
-  <div id="message_block">
+  <div id="message_block" class="message_block">
     <ul class="error">
       <li>Error A</li>
       <li>User first name is required.</li>

@@ -1,43 +1,43 @@
-#message_block {
+.message_block {
   clear: both;
   margin-top: 0.2em;
   margin-bottom: 0.3em;
 }
 
-#message_block ul {
+.message_block ul {
   margin-bottom: 0;
   list-style: none;
   padding: 10px;
 }
-#message_block ul li {
+.message_block ul li {
   margin-left: 3em;
 }
 
-#message_block ul.error {
+.message_block ul.error {
   border-top: 1px solid #ecd757;
   border-bottom: 1px solid #ecd757;
   background: #fcf6d0 url(../../images/message_block/error_m.gif) 1em 50% no-repeat;
 }
 
-#message_block ul.info {
+.message_block ul.info {
   border-top: 1px solid #ecd757;
   border-bottom: 1px solid #ecd757;
   background: #fcf6d0 url(../../images/message_block/info_m.gif) 1em 50% no-repeat;
 }
 
-#message_block ul.notice {
+.message_block ul.notice {
   border-top: 1px solid #ecd757;
   border-bottom: 1px solid #ecd757;
   background: #fcf6d0 url(../../images/message_block/notice_m.gif) 1em 50% no-repeat;
 }
 
-#message_block ul.confirm {
+.message_block ul.confirm {
   border-top: 1px solid #ecd757;
   border-bottom: 1px solid #ecd757;
   background: #fcf6d0 url(../../images/message_block/confirmation_m.gif) 1em 50% no-repeat;
 }
 
-#message_block ul.warn {
+.message_block ul.warn {
   border-top: 1px solid #ecd757;
   border-bottom: 1px solid #ecd757;
   background: #fcf6d0 url(../../images/message_block/warn_m.gif) 1em 50% no-repeat;
