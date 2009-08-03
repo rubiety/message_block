@@ -24,7 +24,7 @@ var MessageBlock = Class.create({
     
     for (error_type in errors) {
       $(this.message_block).appendChild(
-        Builder.node('ul', { class: error_type },
+        Builder.node('ul', { 'class': error_type },
           $A(errors[error_type]).map(function(error) {
             return Builder.node('li', error);
           })
