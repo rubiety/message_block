@@ -6,11 +6,11 @@
 
 var MessageBlock = Class.create({
   initialize: function(message_block) {
-    this.message_block = $(message_block ? message_block : 'message_block');
+    this.message_block = $(message_block ? message_block : "message_block");
   },
   
   clear: function() {
-    this.message_block.update('');
+    this.message_block.update("");
     new Effect.Fade(this.message_block);
   },
   
@@ -20,7 +20,7 @@ var MessageBlock = Class.create({
       return;
     }
     
-    this.message_block.update('');
+    this.message_block.update("");
     
     for (error_type in errors) {
       $(this.message_block).appendChild(

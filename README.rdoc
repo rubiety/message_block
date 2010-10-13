@@ -9,6 +9,16 @@ This view helper acts as a replacement for error_messages_for by taking error me
 from your models and combing them with flash messages (multiple types such as error, confirm, etc.) 
 and outputting them to your view.  This plugin comes with an example stylesheet and images.
 
+== Installation
+
+Include the gem using bundler in your Gemfile:
+
+  gem "message_block"
+
+Then run the rake task to install the static files:
+  
+  rake message_block:install
+
 == Usage
 
 Once you install this, you should now have a set of images at public/images/message_block and 

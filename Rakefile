@@ -1,28 +1,23 @@
 require 'rubygems'
-require 'echoe'
 require 'rake'
-require 'rake/testtask'
 require 'rake/rdoctask'
+require 'spec/rake/spectask'
 
-desc 'Default: run unit tests.'
-task :default => :test
-
-desc 'Test the message_block plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
+desc "Run specs"
+Spec::Rake::SpecTask.new do |t|
+  t.spec_files = Rake::FileList["spec/**/*_spec.rb"]
+  t.spec_opts = ["-c"]
 end
 
-desc 'Generate documentation for the message_block plugin.'
+task :default => :spec
+
+desc "Generate documentation for the plugin."
 Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'MessageBlock'
-  rdoc.options << '--line-numbers' << '--inline-source'
+  rdoc.rdoc_dir = "rdoc"
+  rdoc.title    = "message_block"
+  rdoc.options << "--line-numbers" << "--inline-source"
   rdoc.rdoc_files.include('README')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }
-
+Dir["#{File.dirname(__FILE__)}/lib/tasks/*.rake"].sort.each { |ext| load ext }

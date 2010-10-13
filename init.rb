@@ -1,1 +1,1 @@
-require 'message_block'
+require "message_block"
