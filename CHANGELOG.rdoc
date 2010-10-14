@@ -1,4 +1,10 @@
-== [2010-10-13] 1.0 Major Updates
+== [2010-10-13] 1.0.1 Removed Rails 2.3 Compatibility, Cucumber Overhaul
+
+* Issues with loading rake tasks in Rails 2.3; removing compatibility
+* Revamped Cucumber invocation to use Rails 3 with 'gem "message_block", :path => "..."'
+* Upgraded RSpec to 2.0
+
+== [2010-10-13] 1.0.0 Major Updates
 
 * Finally updated to be a Gem
 * Internal refactoring

@@ -1,14 +1,10 @@
 require "rubygems"
-require "spec"
-require "active_support"
-require "action_view"
 require "message_block"
+require "active_support"
+require "action_pack"
+require "action_view"
 
 require File.dirname(__FILE__) + '/../init'
-
-Spec::Runner.configure do |config|
-  config.mock_with :mocha
-end
 
 # Borrowed model stubs from Rails active_record_helper_test.rb
 # TODO: Re-implement using mocha

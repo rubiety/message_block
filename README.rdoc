@@ -7,24 +7,29 @@ indicating what type of message it is (error, confirmation, warning, etc.)
 
 This view helper acts as a replacement for error_messages_for by taking error messages 
 from your models and combing them with flash messages (multiple types such as error, confirm, etc.) 
-and outputting them to your view.  This plugin comes with an example stylesheet and images.
+and outputting them to your view.  This gem comes with an example stylesheet and images.
 
 == Installation
+
+This gem is testing working with Rails 3.0 only!
 
 Include the gem using bundler in your Gemfile:
 
   gem "message_block"
 
 Then run the rake task to install the static files:
-  
+
   rake message_block:install
+
+Then be sure to include the CSS definitions:
+
+  <%= stylesheet_include_tag "message_block" %>
 
 == Usage
 
 Once you install this, you should now have a set of images at public/images/message_block and 
-a basic stylesheet installed at public/stylesheets/message_block.css.  First you'll want to either 
-reference this in your layout or copy the declarations to your main layout.  Then you can use 
-the helper <tt><%= message_block %></tt> as described below:
+a basic stylesheet installed at public/stylesheets/message_block.css.  Then you can use 
+the helper <tt><%= message_block %></tt>:
 
 The first argument specifies a hash options:
 
@@ -75,9 +80,9 @@ Sometimes you'll want to use the message block pattern within JavaScript.  Would
 the message_block DOM tree based on a JavaScript object not unlike Rails flash?
 
 Included in the plugin is a Prototype JS implementation to make this easier.  Note that this file is *not* automatically 
-copied when the plugin is installed.  Currently only a Prototype version is available (jQuery coming soon!)
+copied when the plugin is installed.  Currently this only works with prototype, but will be converted to jQuery before long:
   
-  assets/javascripts/message_block_prototype.js
+  assets/javascripts/message_block.js
 
 Example Usage:
   
