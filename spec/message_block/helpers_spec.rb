@@ -121,4 +121,10 @@ describe MessageBlock::Helpers do
     output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>Error A</li><li>Author name can't be empty</li></ul></div>)
   end
   
+  it "should be safe for html inside flash messages" do
+    flash[:error] = ["Error <strong>A</strong>", "Error <strong>B</strong>"]
+    output = message_block
+    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>Error <strong>A</strong></li><li>Error <strong>B</strong></li></ul></div>)
+  end
+  
 end
