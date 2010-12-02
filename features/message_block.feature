@@ -27,13 +27,14 @@ Feature: Message Block
     """
     <%= message_block :on => :model %>
     """
-    And the rails application is running
+    And I start the rails application
     When I go to the models page
     Then I should see "Model-One"
     And I should see "Model-Two"
     And I should see "Controller-One"
     And I should see "Controller-Two"
   
+  @focus
   Scenario: Displaying Model Errors Through Nested Attributes
     Given I have a rails application
     And I run "rails g scaffold project name:string"
@@ -73,7 +74,8 @@ Feature: Message Block
     """
       <%= message_block :on => :project %>
     """
-    And the rails application is running
+    And I start the rails application
     When I go to the projects page
+    Then show me the page
     Then I should see "Tasks name can't be blank"
   
