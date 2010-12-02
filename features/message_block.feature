@@ -75,6 +75,5 @@ Feature: Message Block
     """
     And I start the rails application
     When I go to the projects page
-    Then show me the page
     Then I should see "Tasks name can't be blank"
   
