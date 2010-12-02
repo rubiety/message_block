@@ -34,7 +34,6 @@ Feature: Message Block
     And I should see "Controller-One"
     And I should see "Controller-Two"
   
-  @focus
   Scenario: Displaying Model Errors Through Nested Attributes
     Given I have a rails application
     And I run "rails g scaffold project name:string"
