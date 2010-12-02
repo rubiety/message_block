@@ -46,7 +46,6 @@ GEM
       selenium-webdriver (>= 0.0.3)
     childprocess (0.0.7)
       ffi (~> 0.6.3)
-    configuration (1.1.0)
     cucumber (0.9.2)
       builder (~> 2.1.2)
       diff-lcs (~> 1.1.2)
@@ -65,9 +64,6 @@ GEM
     i18n (0.4.1)
     json (1.4.6)
     json_pure (1.4.6)
-    launchy (0.3.7)
-      configuration (>= 0.0.5)
-      rake (>= 0.8.1)
     mail (2.2.7)
       activesupport (>= 2.3.6)
       mime-types
@@ -123,7 +119,6 @@ PLATFORMS
 DEPENDENCIES
   capybara (~> 0.3.9)
   cucumber (~> 0.9.2)
-  launchy (~> 0.3.7)
   message_block!
   rails (>= 3.0.0)
   rspec (~> 2.0)
