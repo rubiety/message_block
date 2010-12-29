@@ -2,8 +2,6 @@ module MessageBlock
   module Helpers
     
     def message_block(options = {})
-      options.assert_valid_keys(:on, :model_error_type, :flash_types, :html, :id, :class, :container)
-      
       options[:model_error_type] ||= :error
       options[:flash_types] ||= [:notice, :back, :confirm, :error, :info, :warn].sort_by(&:to_s)
       options[:on] ||= controller.controller_name.split('/').last.gsub(/\_controller$/, '').singularize.to_sym

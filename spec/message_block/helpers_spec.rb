@@ -9,10 +9,6 @@ describe MessageBlock::Helpers do
     setup_user
   end
   
-  it "should not accept invalid options" do
-    lambda { message_block :invalid => "option" }.should raise_error(ArgumentError)
-  end
-  
   it "should accept valid options" do
     lambda {
       message_block :on => :post, 
