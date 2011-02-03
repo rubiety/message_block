@@ -1,11 +1,11 @@
 .message_block {
   clear: both;
-  margin-top: 0.2em;
-  margin-bottom: 0.3em;
+  margin: 12px 0;
 }
 
 .message_block ul {
-  margin-bottom: 0;
+  border-bottom: 1px solid #ecd757;
+  border-top: 1px solid #ecd757;
   list-style: none;
   padding: 10px;
 }
@@ -14,31 +14,21 @@
 }
 
 .message_block ul.error {
-  border-top: 1px solid #ecd757;
-  border-bottom: 1px solid #ecd757;
-  background: #fcf6d0 url(../../images/message_block/error_m.gif) 1em 50% no-repeat;
+  background: #fcf6d0 url(../../images/message_block/error_m.gif) 16px 50% no-repeat;
 }
 
 .message_block ul.info {
-  border-top: 1px solid #ecd757;
-  border-bottom: 1px solid #ecd757;
-  background: #fcf6d0 url(../../images/message_block/info_m.gif) 1em 50% no-repeat;
+  background: #fcf6d0 url(../../images/message_block/info_m.gif) 16px 50% no-repeat;
 }
 
 .message_block ul.notice {
-  border-top: 1px solid #ecd757;
-  border-bottom: 1px solid #ecd757;
-  background: #fcf6d0 url(../../images/message_block/notice_m.gif) 1em 50% no-repeat;
+  background: #fcf6d0 url(../../images/message_block/notice_m.gif) 16px 50% no-repeat;
 }
 
 .message_block ul.confirm {
-  border-top: 1px solid #ecd757;
-  border-bottom: 1px solid #ecd757;
-  background: #fcf6d0 url(../../images/message_block/confirmation_m.gif) 1em 50% no-repeat;
+  background: #fcf6d0 url(../../images/message_block/confirmation_m.gif) 16px 50% no-repeat;
 }
 
 .message_block ul.warn {
-  border-top: 1px solid #ecd757;
-  border-bottom: 1px solid #ecd757;
   background: #fcf6d0 url(../../images/message_block/warn_m.gif) 1em 50% no-repeat;
 }
