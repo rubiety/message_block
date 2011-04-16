@@ -25,12 +25,14 @@ module MessageBlock
       
       options[:on] = [options[:on]] unless options[:on].is_a?(Array)
       model_objects = options[:on].map do |model_object|
-        if model_object.instance_of?(String) or model_object.instance_of?(Symbol)
+        if model_object == :all
+          assigns.values.select {|o| o.respond_to?(:errors) && o.errors.is_a?(ActiveModel::Errors) }
+        elsif model_object.instance_of?(String) or model_object.instance_of?(Symbol)
           instance_variable_get("@#{model_object}")
         else
           model_object
         end
-      end.select {|m| !m.nil? }
+      end.flatten.select {|m| !m.nil? }
       
       model_errors = model_objects.inject([]) {|b, m| b += m.errors.full_messages }
       

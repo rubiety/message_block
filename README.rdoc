@@ -33,7 +33,7 @@ the helper <tt><%= message_block %></tt>:
 
 The first argument specifies a hash options:
 
-* <tt>:on</tt> - specifies one or many model names for which to check error messages.
+* <tt>:on</tt> - specifies one or many model names for which to check error messages. You can specify the special value of :all which will grab all view assignments that contain an ActiveModel "errors" method.
 * <tt>:model_error_type</tt> - specifies the message type to use for validation errors; defaults to 'error'
 * <tt>:flash_types</tt> - specifies the keys to check in the flash hash.  Messages will be grouped in ul 
   lists according to this type.  Defaults to: %w(back confirm error info warn)
@@ -43,6 +43,7 @@ The first argument specifies a hash options:
 * <tt>:container</tt> - specifies which block-level element to contain the errors (defaults to :div).
 
 === Example
+
 Imagine you have a form for entering a user and a comment:
 
   <%= message_block :on => [:user, :comment] %>
@@ -73,6 +74,8 @@ given that both user and comment fail ActiveRecord validation:
       <li>Warn B</li>
     </ul>
   </div>
+
+Note that instead of manually specifying models you wish to report errors on, you can instead use the special <tt>:all</tt> value which will automatically use all view assign values that contain an ActiveModel::Errors "errors" method.
 
 === Ajax & JavaScript Integration
 

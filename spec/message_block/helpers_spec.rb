@@ -5,8 +5,9 @@ describe MessageBlock::Helpers do
   include MessageBlock::Helpers
   
   before do
-    setup_post
-    setup_user
+    @post = Post.new
+    @user = User.new
+    stub!(:assigns).and_return(:user => @user, :post => @post)
   end
   
   it "should accept valid options" do
@@ -24,40 +25,45 @@ describe MessageBlock::Helpers do
     message_block.should == %(<div class="message_block" id="message_block"></div>)
   end
   
-  it "should automatically find post errorts with posts controller" do
+  it "should automatically find post errors with posts controller" do
     @controller = posts_controller
     output = message_block
-    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>Author name can't be empty</li></ul></div>)
+    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>name can't be blank</li></ul></div>)
   end
   
   it "should give no error for post" do
     output = message_block(:on => :post)
-    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>Author name can't be empty</li></ul></div>)
+    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>name can't be blank</li></ul></div>)
   end
   
   it "should give error for user" do
     output = message_block(:on => :user)
-    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>User email can't be empty</li></ul></div>)
+    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>name can't be blank</li></ul></div>)
+  end
+
+  it "should give error for both user and post when using :all" do
+    output = message_block(:on => :all)
+    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>name can't be blank</li><li>name can't be blank</li></ul></div>)
   end
   
   it "should give errors for both post and user" do
     output = message_block(:on => [:post, :user])
-    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>Author name can't be empty</li><li>User email can't be empty</li></ul></div>)
+    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>name can't be blank</li><li>name can't be blank</li></ul></div>)
   end
   
   it "should give errors for both post and user in the correct order" do
     output = message_block(:on => [:user, :post])
-    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>User email can't be empty</li><li>Author name can't be empty</li></ul></div>)
+    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>name can't be blank</li><li>name can't be blank</li></ul></div>)
   end
   
   it "should give error for user given direct instance variable" do
     output = message_block(:on => @user)
-    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>User email can't be empty</li></ul></div>)
+    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>name can't be blank</li></ul></div>)
   end
   
   it "should respect model error type" do
     output = message_block(:on => :user, :model_error_type => "fail")
-    output.should == %(<div class="message_block" id="message_block"><ul class="fail"><li>User email can't be empty</li></ul></div>)
+    output.should == %(<div class="message_block" id="message_block"><ul class="fail"><li>name can't be blank</li></ul></div>)
   end
   
   it "should be able to specify id for containing div" do
@@ -77,12 +83,12 @@ describe MessageBlock::Helpers do
   
   it "should be able to specify container option as false" do
     output = message_block(:on => :post, :container => false)
-    output.should == %(<ul class="error"><li>Author name can't be empty</li></ul>)
+    output.should == %(<ul class="error"><li>name can't be blank</li></ul>)
   end
   
   it "should be able to specify container option" do
     output = message_block(:on => :post, :container => :fieldset)
-    output.should == %(<fieldset class="message_block" id="message_block"><ul class="error"><li>Author name can't be empty</li></ul></fieldset>)
+    output.should == %(<fieldset class="message_block" id="message_block"><ul class="error"><li>name can't be blank</li></ul></fieldset>)
   end
   
   it "should be able to see flash error string" do
@@ -114,7 +120,7 @@ describe MessageBlock::Helpers do
   it "should be able to see flash error alongside model error" do
     flash[:error] = "Error A"
     output = message_block(:on => :post)
-    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>Error A</li><li>Author name can't be empty</li></ul></div>)
+    output.should == %(<div class="message_block" id="message_block"><ul class="error"><li>Error A</li><li>name can't be blank</li></ul></div>)
   end
   
   it "should be safe for html inside flash messages" do
