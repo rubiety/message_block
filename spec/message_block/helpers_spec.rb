@@ -22,7 +22,7 @@ describe MessageBlock::Helpers do
   end
   
   it "should show nothing with no errors" do
-    message_block.should == %(<div class="message_block" id="message_block"></div>)
+    message_block.should == ''
   end
   
   it "should automatically find post errors with posts controller" do
