@@ -43,10 +43,12 @@ module MessageBlock
         "<ul class=\"#{type}\">" + flash_messages[type.to_sym].map {|message| "<li>#{message}</li>" }.join + "</ul>"
       end.join
       
-      if options[:container]
-        content_tag(options[:container], contents, options[:html], false)
-      else
-        contents
+      unless contents.blank?
+        if options[:container]
+          content_tag(options[:container], contents, options[:html], false)
+        else
+          contents
+        end
       end
     end
     
