@@ -22,7 +22,7 @@ describe MessageBlock::Helpers do
   end
   
   it "should show nothing with no errors" do
-    message_block.should == ''
+    message_block.should be_nil
   end
   
   it "should automatically find post errors with posts controller" do
@@ -67,18 +67,21 @@ describe MessageBlock::Helpers do
   end
   
   it "should be able to specify id for containing div" do
+    @controller = posts_controller
     output = message_block(:id => "messages")
-    output.should == %(<div class="message_block" id="messages"></div>)
+    output.should == %(<div class="message_block" id="messages"><ul class="error"><li>name can't be blank</li></ul></div>)
   end
   
   it "should be able to specify class for containing div" do
+    @controller = posts_controller
     output = message_block(:class => "messages")
-    output.should == %(<div class="messages" id="message_block"></div>)
+    output.should == %(<div class="messages" id="message_block"><ul class="error"><li>name can't be blank</li></ul></div>)
   end
   
   it "should be able to specify html options for containing div" do
+    @controller = posts_controller
     output = message_block(:html => {:id => "block", :class => "messages"})
-    output.should == %(<div class="messages" id="block"></div>)
+    output.should == %(<div class="messages" id="block"><ul class="error"><li>name can't be blank</li></ul></div>)
   end
   
   it "should be able to specify container option as false" do
