@@ -1,3 +1,5 @@
+{<img src="https://secure.travis-ci.org/rubiety/message_block.png?branch=master" alt="Build Status" />}[http://travis-ci.org/rubiety/message_block]
+
 == Message Block
 
 Implements the common view pattern by which a list of messages are shown at the top, 
