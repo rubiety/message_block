@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.author      = "Ben Hughes"
   s.email       = "ben@railsgarden.com"
   s.homepage    = "http://github.com/rubiety/message_block"
-  s.summary     = "Flash message and error_messages_for handling with a common interface."
+  s.summary     = "Flash message and error_messages_for handling with a common interface via the asset pipeline"
   s.description = "Implements the common view pattern by which a list of messages are shown at the top, often a combination of flash messages and ActiveRecord validation issues on one or more models."
   
   s.files        = Dir["{lib,spec,assets,rails}/**/*", "[A-Z]*", "init.rb"]
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = s.name
   s.required_rubygems_version = ">= 1.3.4"
   
-  s.add_dependency("rails", [">= 3.0.0"])
+  s.add_dependency("rails", [">= 3.1.0"])
   s.add_development_dependency("rspec", ["~> 2.0"])
   s.add_development_dependency("sqlite3-ruby", ["~> 1.3.1"])
 end

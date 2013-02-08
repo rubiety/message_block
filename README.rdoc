@@ -11,13 +11,25 @@ This view helper acts as a replacement for error_messages_for by taking error me
 from your models and combing them with flash messages (multiple types such as error, confirm, etc.) 
 and outputting them to your view.  This gem comes with an example stylesheet and images.
 
-== Installation
 
-This gem is testing working with Rails 3.0 only!
+== Installation: Rails 3.1+ Asset Pipeline (message_block 2.0)
 
 Include the gem using bundler in your Gemfile:
 
-  gem "message_block"
+  gem "message_block", "~> 2.0"
+
+Include the stylesheet in your application.css:
+
+  /*
+   *= require message_block
+  */
+
+
+== Installation: Rails 3.0 Without Asset Pipeline (message_block 1.1)
+
+Include the gem using bundler in your Gemfile:
+
+  gem "message_block", "~> 1.1"
 
 Then run the rake task to install the static files:
 
@@ -26,6 +38,7 @@ Then run the rake task to install the static files:
 Then be sure to include the CSS definitions:
 
   <%= stylesheet_include_tag "message_block" %>
+
 
 == Usage
 
@@ -78,3 +91,4 @@ given that both user and comment fail ActiveRecord validation:
   </div>
 
 Note that instead of manually specifying models you wish to report errors on, you can instead use the special <tt>:all</tt> value which will automatically use all view assign values that contain an ActiveModel::Errors "errors" method.
+

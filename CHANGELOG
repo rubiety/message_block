@@ -1,0 +1,5 @@
+== Version 2.0.0 (Feburary 8, 2013)
+
+* Converted assets to use the asset pipeline (instead of a rake task to copy
+assets)
+

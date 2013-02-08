@@ -5,8 +5,6 @@ require "active_model"
 require "action_pack"
 require "action_view"
 
-require File.dirname(__FILE__) + '/../init'
-
 class Post
   extend ActiveModel::Naming
 

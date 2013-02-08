@@ -1,4 +1,5 @@
 require "rubygems"
+require "rails"
 require "active_support"
 require "message_block/helpers"
-require "message_block/railtie"
+require "message_block/engine"
