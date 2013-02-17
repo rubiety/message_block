@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = "Flash message and error_messages_for handling with a common interface via the asset pipeline"
   s.description = "Implements the common view pattern by which a list of messages are shown at the top, often a combination of flash messages and ActiveRecord validation issues on one or more models."
   
-  s.files        = Dir["{lib,spec,assets,rails}/**/*", "[A-Z]*", "init.rb"]
+  s.files        = Dir["{lib,spec,vendor}/**/*", "[A-Z]*", "init.rb"]
   s.require_path = "lib"
   
   s.rubyforge_project = s.name
