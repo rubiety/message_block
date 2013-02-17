@@ -51,7 +51,7 @@ The first argument specifies a hash options:
 * <tt>:on</tt> - specifies one or many model names for which to check error messages. You can specify the special value of :all which will grab all view assignments that contain an ActiveModel "errors" method.
 * <tt>:model_error_type</tt> - specifies the message type to use for validation errors; defaults to 'error'
 * <tt>:flash_types</tt> - specifies the keys to check in the flash hash.  Messages will be grouped in ul 
-  lists according to this type.  Defaults to: %w(back confirm error info warn)
+  lists according to this type.  Defaults to: [:notice, :back, :confirm, :error, :alert, :info, :warn]
 * <tt>:html</tt> - Specifies HTML options for the containing div
 * <tt>:id</tt> - Specifies ID of the containing div; defaults to 'message_block'
 * <tt>:class</tt> - Specifies class name of the containing div; defaults to nothing.
