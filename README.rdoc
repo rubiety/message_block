@@ -2,7 +2,7 @@
 {<img src="https://gemnasium.com/rubiety/message_block.png" alt="Dependency Status" />}[https://gemnasium.com/rubiety/message_block]
 {<img src="https://codeclimate.com/github/rubiety/message_block.png" />}[https://codeclimate.com/github/rubiety/message_block]
 
-== Message Block
+= Message Block
 
 Implements the common view pattern by which a list of messages are shown at the top, 
 often a combination of flash messages and ActiveRecord validation issues on one or more models.  
@@ -93,4 +93,11 @@ given that both user and comment fail ActiveRecord validation:
   </div>
 
 Note that instead of manually specifying models you wish to report errors on, you can instead use the special <tt>:all</tt> value which will automatically use all view assign values that contain an ActiveModel::Errors "errors" method.
+
+
+== Running Tests
+
+This gem uses appraisal to test with different versions of the dependencies. See Appraisal first for which versions are tested, then run to test all appraisals:
+
+  $ rake appraisal test
 
