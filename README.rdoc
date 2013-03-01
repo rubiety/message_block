@@ -1,5 +1,6 @@
 {<img src="https://secure.travis-ci.org/rubiety/message_block.png?branch=master" alt="Build Status" />}[http://travis-ci.org/rubiety/message_block]
 {<img src="https://gemnasium.com/rubiety/message_block.png" alt="Dependency Status" />}[https://gemnasium.com/rubiety/message_block]
+{<img src="https://codeclimate.com/github/rubiety/message_block.png" />}[https://codeclimate.com/github/rubiety/message_block]
 
 == Message Block
 
