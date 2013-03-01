@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'rake'
 require 'rdoc/task'
+require 'appraisal'
+require 'bundler/setup'
 
 require 'rubygems'
 require 'bundler/setup'
@@ -18,6 +20,19 @@ RSpec::Core::RakeTask.new(:spec) do |t|
 end
 
 task :test => :spec
+
+desc 'Default: run unit tests.'
+task :default => [:clean, :all]
+
+desc 'Test the paperclip plugin under all supported Rails versions.'
+task :all do |t|
+  if ENV['BUNDLE_GEMFILE']
+    exec('rake test')
+  else
+    Rake::Task["appraisal:install"].execute
+    exec('rake appraisal test')
+  end
+end
 
 desc "Clean up files."
 task :clean do |t|
