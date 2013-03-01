@@ -1,14 +1,11 @@
 require 'rubygems'
+require 'bundler/setup'
+
 require 'rake'
-require 'rdoc/task'
 require 'appraisal'
 require 'bundler/setup'
-
-require 'rubygems'
-require 'bundler/setup'
-
-require 'rake'
 require 'rspec/core/rake_task'
+require 'rdoc/task'
 
 Bundler::GemHelper.install_tasks
 
