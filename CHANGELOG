@@ -1,3 +1,7 @@
+== Version 2.0.3 (June 14, 2013)
+
+* Fixed path to confirm.gif
+
 == Version 2.0.2 (Feburary 17, 2013)
 
 * Fixed inclusion of vendor from gemspec
