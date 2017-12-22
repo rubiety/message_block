@@ -20,9 +20,7 @@ module MessageBlock
         flash_messages[type.to_sym] ||= []
         flash_messages[type.to_sym] += entries
       end
-      
-      options[:on] = [options[:on]] unless options[:on].is_a?(Array)
-      
+            
       options[:on] = [options[:on]] unless options[:on].is_a?(Array)
       model_objects = options[:on].map do |model_object|
         if model_object == :all
